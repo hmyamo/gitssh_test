@@ -2,18 +2,26 @@ node {
 	stage('Checkout') { checkout scm }
 	def githubNotifier = load('github-status-notifier')
 
-	try {
-		stage('README') {
+	stage('README') {
+		try {
 			sh "cat README.md"
+			currentBuild = 'SUCCESS'
+		} catch (e)
+			currentBuild = 'FAILURE'
 		}
+	}
+	
+	stage('Notify') {
 		githubNotifier.success()
-  } catch (e) {
-		sh "echo 'catch error'"
-		println e.message
-		println e.responceCode
+	}
+	
+//		githubNotifier.success()
+//  } catch (e) {
+//		sh "echo 'catch error'"
+//		println e.message
+//		println e.responceCode
   	//currentBuild.result = 'FAILURE'
 		//githubNotifier.error('hogehoge')
- 	}
 }
 
 // node {
