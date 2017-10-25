@@ -10,7 +10,7 @@ node {
   } catch (e) {
 		sh "echo 'catch error'"
 		println e.message
-		println e.getResponseCode()
+		println e.responceCode
   	//currentBuild.result = 'FAILURE'
 		//githubNotifier.error('hogehoge')
  	}
