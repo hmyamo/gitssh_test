@@ -7,9 +7,9 @@ node {
 			sh "cat README.md"
 		}
 		githubNotifier.success()
-		sh "echo 'good!'"
   } catch (e) {
 		sh "echo 'catch error'"
+		println e.message
   	//currentBuild.result = 'FAILURE'
 		//githubNotifier.error('hogehoge')
  	}
