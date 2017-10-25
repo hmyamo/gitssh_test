@@ -2,6 +2,4 @@
 
 This is a test.
 
-not yet be success...
-
-hook triger with gitscm poling.
+hook triger with gitscm poling is ON.
