@@ -1,1 +1,1 @@
-# bitbucketへのgit sshテスト
+# github trigger to jenkins
