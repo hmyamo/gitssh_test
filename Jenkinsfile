@@ -1,6 +1,10 @@
 node {
-	stage('Checkout') { checkout scm }
-	def githubNotifier = load('github-status-notifier')
+	step([$class: 'GitHubSetCommitStatusBuilder'])
+	
+	stage('Checkout') {
+		checkout scm
+	}
+	//def githubNotifier = load('github-status-notifier')
 
 	stage('README') {
 		try {
@@ -12,7 +16,7 @@ node {
 	}
 	
 	stage('Notify') {
-		githubNotifier.success()
+		step([$class: 'GitHubCommitNotifier', resultOnFailure: 'FAILURE'])
 	}
 	
 //		githubNotifier.success()
