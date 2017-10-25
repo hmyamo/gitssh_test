@@ -9,6 +9,6 @@ node {
 		githubNotifier.success()
   } catch (e) {
   	//currentBuild.result = 'FAILURE'
-		//githubNotifier.error('hogehoge')
+		githubNotifier.error('hogehoge')
  	}
 }
