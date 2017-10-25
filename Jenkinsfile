@@ -6,7 +6,7 @@ node {
 		stage('README') {
 			sh "cat README.md"
 		}
-		githubNotifier.success() | echo "good!"
+		githubNotifier.success() | sh "echo 'good!'"
   } catch (e) {
 		sh "echo 'catch error'"
   	//currentBuild.result = 'FAILURE'
