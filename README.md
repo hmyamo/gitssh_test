@@ -4,4 +4,4 @@ This is a test.
 
 not yet be success...
 
-SCM poling
+hook triger with gitscm poling.
