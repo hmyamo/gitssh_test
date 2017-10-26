@@ -6,7 +6,7 @@ node {
 
 	try {
 		stage('README') {
-			sh "cat README"
+			sh "cat README.md"
 		}
 		githubNotifier.success()
 	} catch (e) {
