@@ -1,31 +1,18 @@
-node {
-	step([$class: 'GitHubSetCommitStatusBuilder'])
-	
+node {	
 	stage('Checkout') {
 		checkout scm
 	}
-	//def githubNotifier = load('github-status-notifier')
+	def githubNotifier = load('github-status-notifier')
 
-	stage('README') {
-		try {
+	try {
+		stage('README') {
 			sh "cat README.md"
-			currentBuild.result = 'SUCCESS'
-		} catch (e)
-			currentBuild.result = 'FAILURE'
 		}
+		githubNotifier.success()
+	} catch (e)
+		//currentBuild.result = 'FAILURE'
+		githubNotifier.error('hogehoge')
 	}
-	
-	stage('Notify') {
-		step([$class: 'GitHubCommitNotifier', resultOnFailure: 'FAILURE'])
-	}
-	
-//		githubNotifier.success()
-//  } catch (e) {
-//		sh "echo 'catch error'"
-//		println e.message
-//		println e.responceCode
-  	//currentBuild.result = 'FAILURE'
-		//githubNotifier.error('hogehoge')
 }
 
 // node {
