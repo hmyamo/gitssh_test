@@ -13,7 +13,7 @@ node {
 		println e.message
 		if (e.message.indexOf("code: 201") == -1) {
 			currentBuild.result = 'FAILURE'
-			githubNotifier.error('hogehoge')
+			//githubNotifier.error('hogehoge')
 		}
 	}
 }

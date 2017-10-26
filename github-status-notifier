@@ -1,7 +1,16 @@
-def success(message = 'Good!') { notify('SUCCESS', message) }
-def failure(message = 'Something wrong..') { notify('FAILURE', message) }
-def error(message = 'Bad!') { notify('ERROR', message) }
-def pending(message = 'In progerss..') { notify('PENDING', message) }
+def success(message = 'Good!') {
+  notify('SUCCESS', message)
+}
+def failure(message = 'Something wrong..') {
+  notify('FAILURE', message)
+}
+def error(message = 'Bad!') {
+  notify('ERROR', message)
+}
+
+def pending(message = 'In progerss..') {
+  notify('PENDING', message)
+}
 
 private def notify(state, message) {
   step([
