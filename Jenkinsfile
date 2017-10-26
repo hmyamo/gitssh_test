@@ -19,22 +19,3 @@ node {
 		}
 	}
 }
-
-// node {
-//   step([$class: 'GitHubSetCommitStatusBuilder'])
-//
-//   stage 'Checkout'
-//   checkout scm
-//
-//   stage 'REAMDE'
-//   try {
-//     sh "cat README.md"
-//     currentBuild.result = 'SUCCESS'
-//   } catch (err) {
-//     currentBuild.result = 'FAILURE'
-//   }
-//
-//   stage 'Notify'
-//   step([$class: 'GitHubCommitNotifier', resultOnFailure: 'FAILURE'])
-//
-// }
