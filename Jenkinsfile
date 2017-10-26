@@ -15,6 +15,7 @@ node {
 			currentBuild.result = 'FAILURE'
 			//githubNotifier.error('hogehoge')
 		}
+	} finally (e) {
 	}
 }
 
