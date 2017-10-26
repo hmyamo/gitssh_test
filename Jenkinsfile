@@ -9,9 +9,9 @@ node {
 	stage('README') {
 		try {
 			sh "cat README.md"
-			currentBuild = 'SUCCESS'
+			currentBuild.result = 'SUCCESS'
 		} catch (e)
-			currentBuild = 'FAILURE'
+			currentBuild.result = 'FAILURE'
 		}
 	}
 	
