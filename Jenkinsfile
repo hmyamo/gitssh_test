@@ -1,4 +1,4 @@
-node {	
+node {
 	stage('Checkout') {
 		checkout scm
 	}
@@ -11,7 +11,7 @@ node {
 		githubNotifier.success()
 	} catch (e) {
 		println e.message
-		if (e.indexOf("code: 201") == -1) {
+		if (e.message.indexOf("code: 201") == -1) {
 			currentBuild.result = 'FAILURE'
 			githubNotifier.error('hogehoge')
 		}
