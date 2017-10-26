@@ -9,7 +9,7 @@ node {
 			sh "cat README.md"
 		}
 		githubNotifier.success()
-	} catch (e)
+	} catch (e) {
 		//currentBuild.result = 'FAILURE'
 		githubNotifier.error('hogehoge')
 	}
